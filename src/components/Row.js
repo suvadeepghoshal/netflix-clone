@@ -18,14 +18,18 @@ function Row(props) {
          */
         async function fetchData() {
             let fetchURL = props.fetchUrl;
-            const request = instance.get(fetchURL);
-            console.log(request);
+            /**
+             * Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is fulfilled or rejected
+             */
+            const apiResponse = await instance.get(fetchURL);
+            setMovies(apiResponse.data.results);
+            return apiResponse;
         }
         fetchData();
-        // return () => {
-        //     cleanup
-        // }
-    }, [movies])
+        return () => {
+        }
+    }, [props.fetchUrl]) /* Every time the fetchUrl changes we need to reload the userEffect to get the dynamic data */
+    console.log(movies);
     return (
         <div>
             <h2>{props.title}</h2>
