@@ -1,3 +1,7 @@
+.Row {
+    margin-left: 20px;
+}
+
 .Row__container {
     display: flex;
     overflow-y: hidden;
@@ -13,12 +17,21 @@
 .onePoster {
     object-fit: contain;
     width: 100%;
-    max-height: 300px;
+    max-height: 130px;
     margin-right: 10px;
     transition: transform 250ms;
 }
 
 .onePoster:hover {
     transform: scale(1.08);
+    opacity: 1;
+}
+
+.oneLargePoster {
+    max-height: 270px;
+}
+
+.oneLargePoster:hover {
+    transform: scale(1.09);
     opacity: 1;
 }
