@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import instance from '../utility/axios';
 import { useEffect } from 'react';
+import './Row.css'
 /**
  * This function is one row component for the netflix website
  * Inside one row multiple movies will be displayed
@@ -30,13 +31,14 @@ function Row(props) {
             console.log(`Cleanup process after every content change is done`);
         }
     }, [props.fetchUrl]) /* Every time the fetchUrl changes we need to reload the userEffect to get the dynamic data */
-    const imageBaseURL = "https://image.tmdb.org/t/p/w200/";
+    const baseUrl = "https://image.tmdb.org/t/p/";
+    const fileSize = "original"
     return (
         <div className="Row">
             <h2>{props.title}</h2>
             <div className="Row__container">
                 {movies.map(movie => (
-                    <img src={`${imageBaseURL}${movie.poster_path}`} alt={movie.name} />
+                    <img className="onePoster" src={`${baseUrl}${fileSize}${movie.poster_path}`} alt={movie.name} />
                 ))}
             </div>
         </div>
