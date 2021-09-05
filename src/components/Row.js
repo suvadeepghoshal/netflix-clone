@@ -30,10 +30,16 @@ function Row(props) {
             console.log(`Cleanup process after every content change is done`);
         }
     }, [props.fetchUrl]) /* Every time the fetchUrl changes we need to reload the userEffect to get the dynamic data */
-    console.log(movies);
+    console.log(movies)
+    const imageBaseURL = "https://image.tmdb.org/t/p/w200/";
     return (
-        <div>
+        <div className="Row">
             <h2>{props.title}</h2>
+            <div className="Row__container">
+                {movies.map(movie => (
+                    <img src={`${imageBaseURL}${movie.poster_path}`} alt={movie.name} />
+                ))}
+            </div>
         </div>
     )
 }
