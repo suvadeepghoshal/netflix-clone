@@ -27,6 +27,7 @@ function Row(props) {
         }
         fetchData();
         return () => {
+            console.log(`Cleanup process after every content change is done`);
         }
     }, [props.fetchUrl]) /* Every time the fetchUrl changes we need to reload the userEffect to get the dynamic data */
     console.log(movies);
