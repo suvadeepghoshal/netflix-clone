@@ -38,7 +38,8 @@ function Row(props) {
             <h2>{props.title}</h2>
             <div className="Row__container">
                 {movies.map(movie => (
-                    <img className="onePoster" src={`${baseUrl}${fileSize}${movie.poster_path}`} alt={movie.name} />
+                    // if there is any change or re-rendering required, instead of the whole row, it is going to render that particular movie, based on the movie.id which is unique
+                    <img key={movie.id} className="onePoster" src={`${baseUrl}${fileSize}${movie.poster_path}`} alt={movie.name} />
                 ))}
             </div>
         </div>
