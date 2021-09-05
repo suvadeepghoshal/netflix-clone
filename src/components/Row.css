@@ -1,0 +1,16 @@
+.Row__container {
+    display: flex;
+}
+
+.onePoster {
+    object-fit: contain;
+    width: 100%;
+    max-height: 300px;
+    margin-right: 10px;
+    transition: transform 250ms;
+}
+
+.onePoster:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
