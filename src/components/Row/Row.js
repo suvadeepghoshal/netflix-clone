@@ -32,7 +32,7 @@ function Row(props) {
         }
     }, [props.fetchUrl]) /* Every time the fetchUrl changes we need to reload the userEffect to get the dynamic data */
     const baseUrl = "https://image.tmdb.org/t/p/";
-    const fileSize = "original"
+    const fileSize = "original";
     return (
         <div className="Row">
             <h2>{props.title}</h2>
