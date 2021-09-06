@@ -27,18 +27,31 @@ function Banner() {
         }
         fetchRandomMovie();
     }, [])
-    console.log(movie);
+    /**
+     * This function truncates the movie description to some what easier looking!
+     * @param {String} text This is the description of the movie
+     * @param {Integer} limit This is the limit after which we want to truncate
+     * @returns the description, truncated or not depending on the limit given
+     */
+    function truncateDescription(text, limit) {
+        if (text != null && text.length > limit) {
+            text = text.substring(0, limit - 1) + "...";
+        } else {
+            text = text;
+        }
+        return text;
+    }
     let baseUrl = "https://image.tmdb.org/t/p/";
     let fileSize = "original";
     return (
         <header className="Banner" style={{ backgroundSize: "cover", backgroundImage: `url(${baseUrl}${fileSize}${movie?.backdrop_path})`, backgroundPosition: "center center" }}>
             <div className="Banner__contents">
-                <h1>{movie?.title || movie?.name || movie?.orginal_name}</h1>
+                <h1 className="Banner__title">{movie?.title || movie?.name || movie?.orginal_name}</h1>
                 <div className="Banner_buttons">
                     <button className="Banner__button">Play</button>
                     <button className="Banner__button">My list</button>
                 </div>
-                <h1 className="Banner__description">{movie?.overview}</h1>
+                <h1 className="Banner__description">{truncateDescription(movie?.overview, 200)}</h1>
             </div>
         </header>
     )
