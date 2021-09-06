@@ -34,12 +34,13 @@ function Banner() {
      * @returns the description, truncated or not depending on the limit given
      */
     function truncateDescription(text, limit) {
+        let result = '';
         if (text != null && text.length > limit) {
-            text = text.substring(0, limit - 1) + "...";
+            result = text.substring(0, limit - 1) + "...";
         } else {
-            text = text;
+            result = text;
         }
-        return text;
+        return result;
     }
     let baseUrl = "https://image.tmdb.org/t/p/";
     let fileSize = "original";
@@ -53,6 +54,8 @@ function Banner() {
                 </div>
                 <h1 className="Banner__description">{truncateDescription(movie?.overview, 200)}</h1>
             </div>
+            {/* This div is to create that fading effect of the banner with the content */}
+            <div className="Banner__bottomFading"></div>
         </header>
     )
 }
