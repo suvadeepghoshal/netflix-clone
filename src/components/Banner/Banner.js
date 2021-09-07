@@ -20,7 +20,7 @@ function Banner() {
             const randomMovieResponse = await instance.get(requests.fetchNetflixOriginals);
             // Randomly select one movie
             let movieArr = randomMovieResponse.data.results;
-            let randomIndex = Math.floor(Math.random() * randomMovieResponse.data.results.length);
+            let randomIndex = Math.floor(Math.random() * movieArr.length);
             let randomMovie = movieArr[randomIndex];
             setMovie(randomMovie);
             return randomMovieResponse;
