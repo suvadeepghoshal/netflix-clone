@@ -28,7 +28,7 @@ function Navbar() {
     let netflixLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png";
     return (
         // Here we will do the check for the navbar
-        <div className={`Navbar ${show == true && "showNavbar"}`}>
+        <div className={`Navbar ${show === true && "showNavbar"}`}>
             <img src={netflixLogo} alt="Netflix Logo" className="Navbar__netflixLogo" />
         </div>
     )
